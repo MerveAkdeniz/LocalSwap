@@ -1,21 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anasayfa</title>
     <script src="https://unpkg.com/feather-icons"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="Home.css">
 </head>
+
 <body>
-     
+    <nav class="navbar navbar-expand-lg ">
+        <a class="navbar-brand" href="Home.html">LOCAL SWAP</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="container">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Anasayfa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Keşfet</a> <!-- Keşfet için yeni bir sayfa oluşturabilirsiniz -->
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Yardım</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Hakkımızda</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                
+                <ul class="navbar-nav ml-auto">
+                    <form class="form-inline my-2 my-lg-0 mr-auto">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Ara" aria-label="Search">
+                    </form>
+                    <!-- Sepet -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-shopping-cart"></i></a>
+                    </li>
+                    <!-- Mesajlaşma -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-envelope"></i></a>
+                    </li>
+                    <!-- Kullanıcı Profili -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="fas fa-user"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li><a class="dropdown-item" href="/Account/Account.html">Hesabım</a></li>
+                            <li><a class="dropdown-item" href="#">İlanlarım</a></li>
+                            <li><a class="dropdown-item" href="#">Favoriler</a></li>
+                            <li><a class="dropdown-item" href="#">Ayarlar</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Çıkış Yap</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-4">
+                <img src="/Image/phone.png" alt="LocalSwap Logo" class="img-fluid">
+            </div>
+            <div class="col-md-8">
+                <p>İhtiyaç duyduğun ürünü, en yakın konumunda bul, kirala, takas et, satın al veya satıcı sen ol!</p>
+            </div>
+            
+        </div>
+    </div>
 
     <script src="Home.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    
+
 </body>
+
 </html>

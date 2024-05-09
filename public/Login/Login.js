@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 alert(data.message);
                 if (response.status === 200) {
                     // Başarılı giriş yapıldıysa, kullanıcıyı Home.html sayfasına yönlendir
-                    window.location.href = 'Home/Home.html';
+                    window.location.href = 'Account/Account.html';
                 }
             } catch (error) {
                 console.error('Giriş işlemi sırasında bir hata oluştu:', error);

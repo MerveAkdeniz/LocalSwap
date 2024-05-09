@@ -1,11 +1,18 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const session= require('express-session');   
 const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Express uygulamasına oturum kullanımını ayarla
+app.use(session({
+    secret: 'gizlianahtar', // Oturum bilgisini şifrelemek için kullanılan gizli anahtar
+    resave: false,
+    saveUninitialized: true
+}));
 // MongoDB'ye bağlan
 mongoose.connect('mongodb://localhost:27017/LocalSwapDB', {
     useNewUrlParser: true,
@@ -37,8 +44,9 @@ app.get('/register', (req, res) => {
 app.get('/home', (req, res) => {
     res.sendFile(path.join(__dirname, 'public/Home', 'Home.html'));
 });
-// Login endpoint'i
+// Kullanıcı giriş yaptıktan sonra oturumda kullanıcı bilgilerini sakla
 app.post('/login', async (req, res) => {
+    // Kullanıcı bilgilerini al
     const { email, password } = req.body;
 
     try {
@@ -49,6 +57,9 @@ app.post('/login', async (req, res) => {
         if (!user || user.password !== password) {
             return res.status(401).json({ message: 'Girilen bilgiler hatalı' });
         }
+
+        // Kullanıcıyı oturumda sakla
+        req.session.user = user;
 
         // Başarılı giriş yapılırsa Home.html sayfasına yönlendir
         res.status(200).json({ message: 'Giriş başarılı', user });
@@ -77,6 +88,48 @@ app.post('/register', async (req, res) => {
     } catch (error) {
         console.error('Kayıt işlemi sırasında bir hata oluştu:', error);
         res.status(500).json({ message: 'Kayıt işlemi sırasında bir hata oluştu' });
+    }
+});// Profil güncelleme endpoint'i
+app.post('/user/profile/update', async (req, res) => {
+    const { name, surname, email } = req.body;
+
+    try {
+        // Kullanıcının profil bilgilerini güncelle
+        await User.updateOne({ email }, { name, surname });
+
+        res.status(200).json({ message: 'Profil bilgileri güncellendi' });
+    } catch (error) {
+        console.error('Profil güncelleme hatası:', error);
+        res.status(500).json({ message: 'Profil bilgilerini güncelleme sırasında bir hata oluştu' });
+    }
+});
+
+// Kullanıcı profil bilgilerini sağlayan endpoint
+app.get('/user/profile', (req, res) => {
+    // Oturumda saklanan kullanıcı bilgilerini döndür
+    res.status(200).json(req.session.user);
+});
+
+// Kullanıcı profil bilgilerini güncelleyen endpoint
+app.put('/user/profile', async (req, res) => {
+    // Oturumda saklanan kullanıcı bilgilerini al
+    const user = req.session.user;
+
+    // Güncellenecek bilgileri al
+    const { name, surname, email } = req.body;
+
+    try {
+        // Kullanıcı bilgilerini güncelle
+        user.name = name;
+        user.surname = surname;
+        user.email= email;
+        await user.save();
+
+        // Başarılı bir yanıt gönder
+        res.status(200).json({ message: 'Profil bilgileri güncellendi' });
+    } catch (error) {
+        console.error('Profil güncelleme hatası:', error);
+        res.status(500).json({ message: 'Profil bilgileri güncelleme sırasında bir hata oluştu' });
     }
 });
 
