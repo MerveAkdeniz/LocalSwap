@@ -1,0 +1,12 @@
+.bg{
+    position: fixed;
+    height: 100vh; 
+    background-color: rgb(115, 116, 116);
+    padding-left: 10px;
+}
+.navbar-brand{
+  font-family: "Unlock", serif;
+  font-weight: 400;
+  font-style:normal;
+  color: black;
+}

@@ -1,0 +1,43 @@
+body {
+    background-color: rgb(203, 191, 146);
+    
+}
+
+.navbar-brand {
+    color: rgb(0, 0, 0);
+    font-family: "Bangers", system-ui;
+    font-style: normal;
+    font-size: 50px;
+    margin-left: 0; /* En soldan hizalama */
+    margin-top: 9px;
+}
+
+.nav-link {
+    color: rgb(77, 53, 22);
+}
+
+.container {
+    padding-top: 20px;
+    /* Menü çubuğu yüksekliği kadar üst boşluk bırak */
+    text-align: center;
+    /* İçeriği ortala */
+    font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+.nav-item dropdown{
+    margin-right: 50px;
+}
+/* Anasayfa içeriğine hizalama */
+.col-md-8 {
+    text-align: left;
+    /* İçeriği sola hizala */
+}
+
+/* Resim boyutunu ayarla */
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+    margin-left: -300px;
+    margin-top: -60px;
+}

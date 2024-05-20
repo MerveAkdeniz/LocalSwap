@@ -1,11 +1,23 @@
-
 body {
-    font-family: 'Open Sans', sans-serif;
-    background-color: #eaeef6;
-    color: #333;
-    margin: 0;
-    padding: 0;
-  }
-  
-  
+  font-family: 'Open Sans', sans-serif;
+  background-color: #eaeef6;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+.btn {
+  color:
+    #fff;
+  background:
+    rgb(45, 48, 238);
+  outline: 0;
+  /* Button default siyah dış dolguya sahip Reset Button*/
+  border: 0;
+  /* button default olarak siyah bordera sahip Reset Button*/
+  padding: 12px 25px;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 15px;
+}
  

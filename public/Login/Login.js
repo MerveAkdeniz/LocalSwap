@@ -20,10 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 const data = await response.json();
                 alert(data.message);
-                if (response.status === 200) {
-                    // Başarılı giriş yapıldıysa, kullanıcıyı Home.html sayfasına yönlendir
-                    window.location.href = 'Account/Account.html';
-                }
+                window.location.href = '/Account/Account.html';
             } catch (error) {
                 console.error('Giriş işlemi sırasında bir hata oluştu:', error);
                 alert('Giriş işlemi sırasında bir hata oluştu');

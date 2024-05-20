@@ -6,10 +6,12 @@ document.getElementById('registerForm').addEventListener('submit', async functio
     const emailInput = document.getElementById('email');
     const nameInput = document.getElementById('name');
     const surnameInput = document.getElementById('surname');
+    const phoneNumberInput=document.getElementById('phoneNumber')
     const passwordInput = document.getElementById('password');
     const email = emailInput.value;
     const name = nameInput.value;
     const surname = surnameInput.value;
+    const phoneNumber= phoneNumberInput.value;
     const password = passwordInput.value;
 
     try {
@@ -19,7 +21,7 @@ document.getElementById('registerForm').addEventListener('submit', async functio
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ email, name, surname, password })
+            body: JSON.stringify({ email, name, surname, phoneNumber, password })
         });
         const data = await response.json();
         alert(data.message); // Kayıt işlemi hakkında kullanıcıya bilgi ver
